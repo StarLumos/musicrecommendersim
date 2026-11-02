@@ -47,10 +47,7 @@ class Recommender:
         return "Explanation placeholder"
 
 def load_songs(csv_path: str) -> List[Dict]:
-    """
-    Loads songs from a CSV file.
-    Required by src/main.py
-    """
+    """Loads songs from a CSV file into dicts, converting numeric columns to int/float."""
     print(f"Loading songs from {csv_path}...")
 
     songs: List[Dict] = []
@@ -98,13 +95,7 @@ NUMERIC_TARGET_KEYS = {
 }
 
 def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
-    """
-    Scores a single song against user preferences.
-    Required by recommend_songs() and src/main.py
-
-    Returns (score, reasons), where score is out of 8.0 and reasons lists the
-    points earned by each feature. Features missing from user_prefs are skipped.
-    """
+    """Scores one song out of 8.0, returning (score, reasons); skips features missing from user_prefs."""
     score = 0.0
     reasons: List[str] = []
 
@@ -138,10 +129,7 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     return score, reasons
 
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
-    """
-    Functional implementation of the recommendation logic.
-    Required by src/main.py
-    """
+    """Returns the top k (song, score, explanation) tuples, highest score first."""
     scored = [(song, *score_song(user_prefs, song)) for song in songs]
     # Highest score first; ties fall back to title so output is stable.
     ranked = sorted(scored, key=lambda item: (-item[1], item[0]["title"]))

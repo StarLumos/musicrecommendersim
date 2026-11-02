@@ -129,18 +129,71 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Sample Recommendation Output
 
-Paste a sample of your recommender's output here as a text block so a reader can see what it produces:
+```text
+Loading songs from data/songs.csv...
+Loaded songs: 20
 
-```
-# e.g.:
-# User profile: genre=indie, mood=chill, energy=low
-# Recommendations:
-#   1. ...
-#   2. ...
-#   3. ...
-```
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: lofi / chill
+========================================================================
 
-**Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
+ #1  Midnight Coding  by LoRoom
+     Score: 7.88 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+       * energy 0.42 vs target 0.4 (+1.47)
+       * acousticness 0.71 vs target 0.75 (+0.96)
+       * valence 0.56 vs target 0.58 (+0.98)
+       * danceability 0.62 vs target 0.6 (+0.73)
+       * tempo_bpm 78 vs target 80 (+0.73)
+------------------------------------------------------------------------
+
+ #2  Library Rain  by Paper Lanterns
+     Score: 7.71 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+       * energy 0.35 vs target 0.4 (+1.42)
+       * acousticness 0.86 vs target 0.75 (+0.89)
+       * valence 0.6 vs target 0.58 (+0.98)
+       * danceability 0.58 vs target 0.6 (+0.73)
+       * tempo_bpm 72 vs target 80 (+0.68)
+------------------------------------------------------------------------
+
+ #3  Focus Flow  by LoRoom
+     Score: 6.96 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * energy 0.4 vs target 0.4 (+1.50)
+       * acousticness 0.78 vs target 0.75 (+0.97)
+       * valence 0.59 vs target 0.58 (+0.99)
+       * danceability 0.6 vs target 0.6 (+0.75)
+       * tempo_bpm 80 vs target 80 (+0.75)
+------------------------------------------------------------------------
+
+ #4  Spacewalk Thoughts  by Orbit Bloom
+     Score: 5.27 / 8.00
+     Why:
+       * mood match: chill (+1.00)
+       * energy 0.28 vs target 0.4 (+1.32)
+       * acousticness 0.92 vs target 0.75 (+0.83)
+       * valence 0.65 vs target 0.58 (+0.93)
+       * danceability 0.41 vs target 0.6 (+0.61)
+       * tempo_bpm 60 vs target 80 (+0.59)
+------------------------------------------------------------------------
+
+ #5  Dust Road Home  by Cedar Hollow
+     Score: 4.68 / 8.00
+     Why:
+       * energy 0.48 vs target 0.4 (+1.38)
+       * acousticness 0.74 vs target 0.75 (+0.99)
+       * valence 0.58 vs target 0.58 (+1.00)
+       * danceability 0.61 vs target 0.6 (+0.74)
+       * tempo_bpm 102 vs target 80 (+0.57)
+------------------------------------------------------------------------
+```
 
 ---
 

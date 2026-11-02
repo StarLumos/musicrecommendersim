@@ -13,6 +13,7 @@ from recommender import WEIGHTS, load_songs, recommend_songs
 
 
 def main() -> None:
+    """Loads the catalog, recommends songs for the sample profile, and prints them."""
     songs = load_songs("data/songs.csv") 
 
     # Taste profile: "Late-night study session" listener.

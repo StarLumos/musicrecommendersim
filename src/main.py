@@ -9,7 +9,7 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
-from recommender import load_songs, recommend_songs
+from recommender import WEIGHTS, load_songs, recommend_songs
 
 
 def main() -> None:
@@ -31,14 +31,28 @@ def main() -> None:
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 
-    print("\nTop recommendations:\n")
-    for rec in recommendations:
-        # You decide the structure of each returned item.
-        # A common pattern is: (song, score, explanation)
-        song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
+    print_recommendations(user_prefs, recommendations)
+
+
+def print_recommendations(user_prefs: dict, recommendations: list) -> None:
+    """Prints each recommendation as a numbered card: title, score, and reasons."""
+    width = 72
+    max_score = sum(WEIGHTS.values())
+
+    print()
+    print("=" * width)
+    print(f" TOP {len(recommendations)} RECOMMENDATIONS")
+    print(f" Profile: {user_prefs['favorite_genre']} / {user_prefs['favorite_mood']}")
+    print("=" * width)
+
+    for rank, (song, score, explanation) in enumerate(recommendations, start=1):
         print()
+        print(f" #{rank}  {song['title']}  by {song['artist']}")
+        print(f"     Score: {score:.2f} / {max_score:.2f}")
+        print("     Why:")
+        for reason in explanation.split("; "):
+            print(f"       * {reason}")
+        print("-" * width)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,9 @@
 ## 1. Model Name  
 
 Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+Example: **VibeFinder 1.0** 
+
+MuseMatcher
 
 ---
 
@@ -16,6 +18,8 @@ Prompts:
 - What kind of recommendations does it generate  
 - What assumptions does it make about the user  
 - Is this for real users or classroom exploration  
+
+MuseMatcher suggests the top 5 songs from a small catalog of 20 songs for one listener at a time. Each suggestion comes with a score out of 8 and a plain-language list of reasons, such as "genre match" or "energy close to target", so the user can see why a song was picked. It assumes the listener can describe their taste up front as a single profile: one favorite genre, one favorite mood, and an ideal value for energy, tempo, valence, danceability, and acousticness. It also assumes that taste is stable and that songs close to those targets are what the listener wants, so it does not learn from skips, replays, or other users. This is a classroom exploration project, not a product for real listeners. It is meant for learning how recommenders turn data into rankings and for examining their trade-offs, and it is too small and too simple to rely on for actual music discovery.
 
 ---
 
@@ -31,6 +35,12 @@ Prompts:
 - What changes did you make from the starter logic  
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+
+Think of MuseMatcher as a judge handing out points. The listener tells it their favorite genre and mood, plus their ideal level of energy, tempo, happiness (valence), danceability, and acousticness. Then the judge goes through every song in the catalog, one at a time, and awards points for how well that song fits. Each song can earn up to 8 points.
+
+Genre and mood are all-or-nothing: a matching genre earns 2 points and a matching mood earns 1 point, while a mismatch earns nothing. The other five features are about closeness instead of a match. A song earns the full points for a feature if it sits right on the listener's target, and fewer points the further away it is. Energy is worth up to 1.5 points, acousticness and valence up to 1 point each, and danceability and tempo up to 0.75 each. Tempo is measured against the full range of tempos in the catalog, so a gap of a few beats per minute does not count more heavily than a gap in the other features. Once every song has a total, the songs are ranked from highest to lowest and the top 5 are shown, with ties broken alphabetically by title. Along with each score, the model lists the points each feature contributed, so the listener can see exactly why a song ranked where it did.
+
+The starter code only had empty placeholders for loading songs, scoring them, and ranking them, so the scoring approach is new. I set the weights myself, giving genre the most weight because it is the strongest single signal and mood a smaller one. I also replaced the starter profile's single "likes acoustic" yes/no idea with numeric targets for every feature, so the listener's taste can be described more precisely. Every recommendation now comes with its reasons, which the starter did not provide.
 
 ---
 

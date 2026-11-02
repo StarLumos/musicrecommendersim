@@ -17,8 +17,6 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
-
 Some prompts to answer:
 
 - What features does each `Song` use in your system
@@ -30,6 +28,8 @@ Some prompts to answer:
 You can include a simple diagram or bullet list if helpful.
 
 ---
+
+Real-world platforms like Spotify and YouTube predict what you'll love next with a multi-stage pipeline. They first narrow millions of tracks to a few hundred candidates, then rank those with a learned model. Their strongest signal is collaborative filtering, which learns from the behavior of millions of users (plays, skips, saves, playlist adds), and it is blended with content-based signals such as audio features and metadata, which help when a song or user is new. Our version is purely content-based and works on a small catalog, so it has no other users' behavior to learn from. It compares each song's attributes to a single user's taste profile and prioritizes **energy** most heavily, scored by how close a song is to the user's target rather than by how high or low it is. It then adds smaller contributions from **mood**, **genre**, **valence**, and **danceability**. Each song gets a score from this weighted sum, and the top-scoring songs are returned along with the reasons they matched.
 
 ## Getting Started
 

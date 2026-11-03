@@ -2,16 +2,9 @@
 
 ## Project Summary
 
-In this project you will build and explain a small music recommender system.
+This project is a small, content-based music recommender that runs from the command line. It loads a 20-song catalog from `data/songs.csv` and compares every song to a single listener's taste profile (favorite genre and mood, plus target energy, acousticness, valence, danceability, and tempo). Each song is scored out of 8.0 using a weighted sum: genre and mood are exact-match bonuses, while the numeric features earn points based on how close the song is to the user's target. The top 5 songs are printed along with a per-feature breakdown, so every recommendation explains why it was chosen.
 
-Your goal is to:
-
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
-
-Replace this paragraph with your own summary of what your version does.
+Beyond the main "late-night study" profile, the project was tested against adversarial and edge-case profiles (conflicting moods, wrong scales, messy categories, empty profiles, ties) to see where the scoring rule breaks down. The results, along with the system's biases and limitations, are documented below and in the [model card](model_card.md).
 
 ---
 
@@ -704,38 +697,25 @@ Loaded songs: 20
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
+I ran the edge-case profiles shown above:
 
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+- **Conflicting tastes** ("Sad but pumped"): genre and energy dominated, so mood was ignored and pop songs with high valence ranked first.
+- **Genre vs. numbers** (metal / angry with low-energy targets): the metal song won on the genre and mood bonuses despite poor numeric fit.
+- **Bad input**: wrong scales gave near-zero scores, messy categories (`Hip-Hop`, ` chill `) matched nothing, and a string value crashed the scorer.
 
 ---
 
 ## Limitations and Risks
 
-Summarize some limitations of your recommender.
-
-Examples:
-
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-You will go deeper on this in your model card.
+- Tiny 20-song catalog, so rankings can be nearly fixed for rare genres.
+- Genre and mood are exact-match only, with no credit for near-misses.
+- No input validation: bad types crash, and bad scales or messy text silently score 0.
+- One taste point per user, and hand-picked weights, with no learning from behavior.
 
 ---
 
 ## Reflection
 
-Read and complete `model_card.md`:
+A recommender turns data into predictions by scoring how close each item is to a profile, so the weights you pick are really a set of assumptions about what matters. Small choices, like weighting genre twice as much as mood, visibly change who gets recommended what.
 
-[**Model Card**](model_card.md)
-
-Write 1 to 2 paragraphs here about what you learned:
-
-- about how recommenders turn data into predictions
-- about where bias or unfairness could show up in systems like this
-
-
-
+Bias shows up through those choices and the data behind them. A small catalog and exact-match categories favor popular or well-represented genres, and a single-point profile ignores users with mixed tastes. Real systems face the same issues at scale, plus filter bubbles from only recommending what users already like.

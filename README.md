@@ -195,6 +195,511 @@ Loaded songs: 20
 ------------------------------------------------------------------------
 ```
 
+## Sample Recommendation Output for Adversarial or Edge Cafe User Profiles
+```
+Loading songs from data/songs.csv...
+Loaded songs: 20
+
+### Late-night study session
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: lofi / chill
+========================================================================
+
+ #1  Midnight Coding  by LoRoom
+     Score: 7.88 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+       * energy 0.42 vs target 0.4 (+1.47)
+       * acousticness 0.71 vs target 0.75 (+0.96)
+       * valence 0.56 vs target 0.58 (+0.98)
+       * danceability 0.62 vs target 0.6 (+0.73)
+       * tempo_bpm 78 vs target 80 (+0.73)
+------------------------------------------------------------------------
+
+ #2  Library Rain  by Paper Lanterns
+     Score: 7.71 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+       * energy 0.35 vs target 0.4 (+1.42)
+       * acousticness 0.86 vs target 0.75 (+0.89)
+       * valence 0.6 vs target 0.58 (+0.98)
+       * danceability 0.58 vs target 0.6 (+0.73)
+       * tempo_bpm 72 vs target 80 (+0.68)
+------------------------------------------------------------------------
+
+ #3  Focus Flow  by LoRoom
+     Score: 6.96 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * energy 0.4 vs target 0.4 (+1.50)
+       * acousticness 0.78 vs target 0.75 (+0.97)
+       * valence 0.59 vs target 0.58 (+0.99)
+       * danceability 0.6 vs target 0.6 (+0.75)
+       * tempo_bpm 80 vs target 80 (+0.75)
+------------------------------------------------------------------------
+
+ #4  Spacewalk Thoughts  by Orbit Bloom
+     Score: 5.27 / 8.00
+     Why:
+       * mood match: chill (+1.00)
+       * energy 0.28 vs target 0.4 (+1.32)
+       * acousticness 0.92 vs target 0.75 (+0.83)
+       * valence 0.65 vs target 0.58 (+0.93)
+       * danceability 0.41 vs target 0.6 (+0.61)
+       * tempo_bpm 60 vs target 80 (+0.59)
+------------------------------------------------------------------------
+
+ #5  Dust Road Home  by Cedar Hollow
+     Score: 4.68 / 8.00
+     Why:
+       * energy 0.48 vs target 0.4 (+1.38)
+       * acousticness 0.74 vs target 0.75 (+0.99)
+       * valence 0.58 vs target 0.58 (+1.00)
+       * danceability 0.61 vs target 0.6 (+0.74)
+       * tempo_bpm 102 vs target 80 (+0.57)
+------------------------------------------------------------------------
+
+### Sad but pumped
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: pop / sad
+========================================================================
+
+ #1  Gym Hero  by Max Pulse
+     Score: 3.79 / 8.00
+     Why:
+       * genre match: pop (+2.00)
+       * energy 0.93 vs target 0.9 (+1.46)
+       * valence 0.77 vs target 0.1 (+0.33)
+------------------------------------------------------------------------
+
+ #2  Sunrise City  by Neon Echo
+     Score: 3.64 / 8.00
+     Why:
+       * genre match: pop (+2.00)
+       * energy 0.82 vs target 0.9 (+1.38)
+       * valence 0.84 vs target 0.1 (+0.26)
+------------------------------------------------------------------------
+
+ #3  Iron Cathedral  by Black Meridian
+     Score: 2.27 / 8.00
+     Why:
+       * energy 0.97 vs target 0.9 (+1.40)
+       * valence 0.22 vs target 0.1 (+0.88)
+------------------------------------------------------------------------
+
+ #4  Storm Runner  by Voltline
+     Score: 2.10 / 8.00
+     Why:
+       * energy 0.91 vs target 0.9 (+1.48)
+       * valence 0.48 vs target 0.1 (+0.62)
+------------------------------------------------------------------------
+
+ #5  Night Drive Loop  by Neon Echo
+     Score: 1.88 / 8.00
+     Why:
+       * energy 0.75 vs target 0.9 (+1.27)
+       * valence 0.49 vs target 0.1 (+0.61)
+------------------------------------------------------------------------
+
+### Melancholic but pumped
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: pop / melancholic
+========================================================================
+
+ #1  Gym Hero  by Max Pulse
+     Score: 3.79 / 8.00
+     Why:
+       * genre match: pop (+2.00)
+       * energy 0.93 vs target 0.9 (+1.46)
+       * valence 0.77 vs target 0.1 (+0.33)
+------------------------------------------------------------------------
+
+ #2  Sunrise City  by Neon Echo
+     Score: 3.64 / 8.00
+     Why:
+       * genre match: pop (+2.00)
+       * energy 0.82 vs target 0.9 (+1.38)
+       * valence 0.84 vs target 0.1 (+0.26)
+------------------------------------------------------------------------
+
+ #3  Crossroads Monday  by Delta Slim
+     Score: 2.61 / 8.00
+     Why:
+       * mood match: melancholic (+1.00)
+       * energy 0.46 vs target 0.9 (+0.84)
+       * valence 0.33 vs target 0.1 (+0.77)
+------------------------------------------------------------------------
+
+ #4  Nocturne in Rain  by Elena Marchetti
+     Score: 2.33 / 8.00
+     Why:
+       * mood match: melancholic (+1.00)
+       * energy 0.22 vs target 0.9 (+0.48)
+       * valence 0.25 vs target 0.1 (+0.85)
+------------------------------------------------------------------------
+
+ #5  Iron Cathedral  by Black Meridian
+     Score: 2.27 / 8.00
+     Why:
+       * energy 0.97 vs target 0.9 (+1.40)
+       * valence 0.22 vs target 0.1 (+0.88)
+------------------------------------------------------------------------
+
+### Loud and unplugged
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: - / -
+========================================================================
+
+ #1  Rooftop Lights  by Indigo Parade
+     Score: 1.74 / 8.00
+     Why:
+       * energy 0.76 vs target 0.9 (+1.29)
+       * acousticness 0.35 vs target 0.9 (+0.45)
+------------------------------------------------------------------------
+
+ #2  Dust Road Home  by Cedar Hollow
+     Score: 1.71 / 8.00
+     Why:
+       * energy 0.48 vs target 0.9 (+0.87)
+       * acousticness 0.74 vs target 0.9 (+0.84)
+------------------------------------------------------------------------
+
+ #3  Coffee Shop Stories  by Slow Stereo
+     Score: 1.69 / 8.00
+     Why:
+       * energy 0.37 vs target 0.9 (+0.70)
+       * acousticness 0.89 vs target 0.9 (+0.99)
+------------------------------------------------------------------------
+
+ #4  Storm Runner  by Voltline
+     Score: 1.68 / 8.00
+     Why:
+       * energy 0.91 vs target 0.9 (+1.48)
+       * acousticness 0.1 vs target 0.9 (+0.20)
+------------------------------------------------------------------------
+
+ #5  Sunrise City  by Neon Echo
+     Score: 1.66 / 8.00
+     Why:
+       * energy 0.82 vs target 0.9 (+1.38)
+       * acousticness 0.18 vs target 0.9 (+0.28)
+------------------------------------------------------------------------
+
+### Genre vs. numbers
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: metal / angry
+========================================================================
+
+ #1  Iron Cathedral  by Black Meridian
+     Score: 3.43 / 8.00
+     Why:
+       * genre match: metal (+2.00)
+       * mood match: angry (+1.00)
+       * energy 0.97 vs target 0.2 (+0.34)
+       * acousticness 0.04 vs target 0.95 (+0.09)
+       * tempo_bpm 168 vs target 60 (+0.00)
+------------------------------------------------------------------------
+
+ #2  Nocturne in Rain  by Elena Marchetti
+     Score: 3.15 / 8.00
+     Why:
+       * energy 0.22 vs target 0.2 (+1.47)
+       * acousticness 0.97 vs target 0.95 (+0.98)
+       * tempo_bpm 66 vs target 60 (+0.70)
+------------------------------------------------------------------------
+
+ #3  Spacewalk Thoughts  by Orbit Bloom
+     Score: 3.10 / 8.00
+     Why:
+       * energy 0.28 vs target 0.2 (+1.38)
+       * acousticness 0.92 vs target 0.95 (+0.97)
+       * tempo_bpm 60 vs target 60 (+0.75)
+------------------------------------------------------------------------
+
+ #4  Porch Light Lullaby  by Willow & Pine
+     Score: 2.97 / 8.00
+     Why:
+       * energy 0.3 vs target 0.2 (+1.35)
+       * acousticness 0.93 vs target 0.95 (+0.98)
+       * tempo_bpm 74 vs target 60 (+0.64)
+------------------------------------------------------------------------
+
+ #5  Library Rain  by Paper Lanterns
+     Score: 2.84 / 8.00
+     Why:
+       * energy 0.35 vs target 0.2 (+1.28)
+       * acousticness 0.86 vs target 0.95 (+0.91)
+       * tempo_bpm 72 vs target 60 (+0.65)
+------------------------------------------------------------------------
+
+### Wrong scale
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: - / -
+========================================================================
+
+ #1  Spacewalk Thoughts  by Orbit Bloom
+     Score: 0.27 / 8.00
+     Why:
+       * energy 0.28 vs target 9 (+0.00)
+       * tempo_bpm 60 vs target 0.8 (+0.27)
+------------------------------------------------------------------------
+
+ #2  Nocturne in Rain  by Elena Marchetti
+     Score: 0.22 / 8.00
+     Why:
+       * energy 0.22 vs target 9 (+0.00)
+       * tempo_bpm 66 vs target 0.8 (+0.22)
+------------------------------------------------------------------------
+
+ #3  Crossroads Monday  by Delta Slim
+     Score: 0.19 / 8.00
+     Why:
+       * energy 0.46 vs target 9 (+0.00)
+       * tempo_bpm 70 vs target 0.8 (+0.19)
+------------------------------------------------------------------------
+
+ #4  Library Rain  by Paper Lanterns
+     Score: 0.17 / 8.00
+     Why:
+       * energy 0.35 vs target 9 (+0.00)
+       * tempo_bpm 72 vs target 0.8 (+0.17)
+------------------------------------------------------------------------
+
+ #5  Porch Light Lullaby  by Willow & Pine
+     Score: 0.15 / 8.00
+     Why:
+       * energy 0.3 vs target 9 (+0.00)
+       * tempo_bpm 74 vs target 0.8 (+0.15)
+------------------------------------------------------------------------
+
+### Messy categories
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: Hip-Hop /  chill 
+========================================================================
+
+ #1  Coffee Shop Stories  by Slow Stereo
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #2  Concrete Crown  by Rhyme Atlas
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #3  Crossroads Monday  by Delta Slim
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #4  Dust Road Home  by Cedar Hollow
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #5  Focus Flow  by LoRoom
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+### Empty profile
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: - / -
+========================================================================
+
+ #1  Coffee Shop Stories  by Slow Stereo
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #2  Concrete Crown  by Rhyme Atlas
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #3  Crossroads Monday  by Delta Slim
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #4  Dust Road Home  by Cedar Hollow
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+ #5  Focus Flow  by LoRoom
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+### Categorical only
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: lofi / chill
+========================================================================
+
+ #1  Library Rain  by Paper Lanterns
+     Score: 3.00 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+------------------------------------------------------------------------
+
+ #2  Midnight Coding  by LoRoom
+     Score: 3.00 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * mood match: chill (+1.00)
+------------------------------------------------------------------------
+
+ #3  Focus Flow  by LoRoom
+     Score: 2.00 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+------------------------------------------------------------------------
+
+ #4  Spacewalk Thoughts  by Orbit Bloom
+     Score: 1.00 / 8.00
+     Why:
+       * mood match: chill (+1.00)
+------------------------------------------------------------------------
+
+ #5  Coffee Shop Stories  by Slow Stereo
+     Score: 0.00 / 8.00
+     Why:
+       * 
+------------------------------------------------------------------------
+
+### Average listener
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: - / -
+========================================================================
+
+ #1  Tidal Daydream  by Glass Meadow
+     Score: 4.79 / 8.00
+     Why:
+       * energy 0.5 vs target 0.5 (+1.50)
+       * acousticness 0.4 vs target 0.5 (+0.90)
+       * valence 0.57 vs target 0.5 (+0.93)
+       * danceability 0.55 vs target 0.5 (+0.71)
+       * tempo_bpm 100 vs target 100 (+0.75)
+------------------------------------------------------------------------
+
+ #2  Dust Road Home  by Cedar Hollow
+     Score: 4.55 / 8.00
+     Why:
+       * energy 0.48 vs target 0.5 (+1.47)
+       * acousticness 0.74 vs target 0.5 (+0.76)
+       * valence 0.58 vs target 0.5 (+0.92)
+       * danceability 0.61 vs target 0.5 (+0.67)
+       * tempo_bpm 102 vs target 100 (+0.73)
+------------------------------------------------------------------------
+
+ #3  Midnight Coding  by LoRoom
+     Score: 4.34 / 8.00
+     Why:
+       * energy 0.42 vs target 0.5 (+1.38)
+       * acousticness 0.71 vs target 0.5 (+0.79)
+       * valence 0.56 vs target 0.5 (+0.94)
+       * danceability 0.62 vs target 0.5 (+0.66)
+       * tempo_bpm 78 vs target 100 (+0.57)
+------------------------------------------------------------------------
+
+ #4  Crossroads Monday  by Delta Slim
+     Score: 4.34 / 8.00
+     Why:
+       * energy 0.46 vs target 0.5 (+1.44)
+       * acousticness 0.67 vs target 0.5 (+0.83)
+       * valence 0.33 vs target 0.5 (+0.83)
+       * danceability 0.52 vs target 0.5 (+0.73)
+       * tempo_bpm 70 vs target 100 (+0.51)
+------------------------------------------------------------------------
+
+ #5  Velvet Hours  by Amara Vale
+     Score: 4.33 / 8.00
+     Why:
+       * energy 0.52 vs target 0.5 (+1.47)
+       * acousticness 0.3 vs target 0.5 (+0.80)
+       * valence 0.68 vs target 0.5 (+0.82)
+       * danceability 0.76 vs target 0.5 (+0.55)
+       * tempo_bpm 92 vs target 100 (+0.68)
+------------------------------------------------------------------------
+
+### Tie-breaker
+
+========================================================================
+ TOP 5 RECOMMENDATIONS
+ Profile: lofi / -
+========================================================================
+
+ #1  Focus Flow  by LoRoom
+     Score: 3.50 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * energy 0.4 vs target 0.4 (+1.50)
+------------------------------------------------------------------------
+
+ #2  Midnight Coding  by LoRoom
+     Score: 3.47 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * energy 0.42 vs target 0.4 (+1.47)
+------------------------------------------------------------------------
+
+ #3  Library Rain  by Paper Lanterns
+     Score: 3.42 / 8.00
+     Why:
+       * genre match: lofi (+2.00)
+       * energy 0.35 vs target 0.4 (+1.42)
+------------------------------------------------------------------------
+
+ #4  Coffee Shop Stories  by Slow Stereo
+     Score: 1.46 / 8.00
+     Why:
+       * energy 0.37 vs target 0.4 (+1.46)
+------------------------------------------------------------------------
+
+ #5  Crossroads Monday  by Delta Slim
+     Score: 1.41 / 8.00
+     Why:
+       * energy 0.46 vs target 0.4 (+1.41)
+------------------------------------------------------------------------
+
+### Wrong type
+  CRASHED: TypeError: unsupported operand type(s) for -: 'float' and 'str'
+```
+
 ---
 
 ## Experiments You Tried

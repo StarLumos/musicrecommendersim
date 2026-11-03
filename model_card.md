@@ -55,6 +55,8 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
+The catalog has 20 songs. The starter file had 10, and I added 10 more to cover genres and moods the original set left out. Each song has a genre, a mood, and five numeric features: energy, tempo, valence, danceability, and acousticness. There are 17 distinct genres, but only lofi (3 songs) and pop (2 songs) appear more than once, so 14 genres are represented by a single song. Moods are similar: 15 distinct moods, with chill the most common (3 songs) and happy, intense, and melancholic at 2 each. Energy is uneven, with 7 songs below 0.45, 8 at 0.75 or above, and almost nothing between 0.56 and 0.74. Much of taste is missing: there is no Latin, K-pop, or Afrobeats, no non-English music, and nothing that is both loud and acoustic. With one song per genre, a listener whose favorite genre has a single song only ever gets one genre match.
+
 ---
 
 ## 5. Strengths  
@@ -66,6 +68,8 @@ Prompts:
 - User types for which it gives reasonable results  
 - Any patterns you think your scoring captures correctly  
 - Cases where the recommendations matched your intuition  
+
+The system works best for listeners with a coherent, well-covered taste, such as the "Late-night study session" profile (lofi, chill, low energy, high acousticness). Its top 3 were Midnight Coding (7.88 / 8), Library Rain (7.71), and Focus Flow (6.96), all lofi and all matching the quiet, slow, acoustic feel I described. Spacewalk Thoughts and Dust Road Home followed at #4 and #5 with no genre match. They are different genres that share the same low-key vibe, so the numeric features are doing real work there, not just the labels. The "Average listener" profile, with no genre or mood, also gave sensible results: Tidal Daydream, which sits closest to the middle on every feature, ranked first. Because the model lists the points each feature contributed, I could check every ranking against my intuition and see why it came out that way.
 
 ---
 
@@ -79,6 +83,8 @@ Prompts:
 - Genres or moods that are underrepresented  
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
+
+**Weakness discovered: the genre label overrides what the user's numbers say they want.** An exact genre match is worth 2.0 points, more than the entire energy feature (1.5), so a single label can outweigh a large mismatch on every other axis. In the "Sad but pumped" profile (pop, energy 0.9, valence 0.1), Gym Hero scores about 3.79 because of its genre match, while Iron Cathedral, a much closer fit on energy and valence, scores only about 2.27. The problem is made worse by the catalog: 14 of its 17 genres have a single song, and matching is all-or-nothing, so "pop" earns nothing for "indie pop" or "dream pop". Listeners whose taste is better described by vibe than by genre label are therefore pushed toward whichever song happens to share their label, and the numeric features mostly act as tie-breakers.
 
 ---
 
@@ -94,6 +100,17 @@ Prompts:
 - Any simple tests or comparisons you ran  
 
 No need for numeric metrics unless you created some.
+
+I tested 12 profiles: one realistic listener ("Late-night study session") and 11 adversarial or edge-case ones ("Sad but pumped", "Melancholic but pumped", "Loud and unplugged", "Genre vs. numbers", "Wrong scale", "Messy categories", "Empty profile", "Categorical only", "Average listener", "Tie-breaker", "Wrong type"). I checked whether the top 5 matched what each profile asked for and whether the listed reasons explained the ranking. I compared them in six pairs, using each profile once, to see what each preference actually changes:
+
+- **Study session vs. Average listener:** Study targets quiet, slow, acoustic lofi and returns Midnight Coding, Library Rain, and Focus Flow. The average listener's mid-range targets favor mid-energy songs (Tidal Daydream, Velvet Hours). Dust Road Home and Midnight Coding appear in both lists, which makes sense since they sit near the middle too.
+- **Sad but pumped vs. Melancholic but pumped:** Only the mood differs. "Sad" isn't in the catalog, so it earns nothing, while "melancholic" is. The top 2 (Gym Hero, Sunrise City) are identical, but melancholic pulls in Crossroads Monday and Nocturne in Rain, which are quiet songs, ahead of Storm Runner. A mood match (+1.0) is worth more than the energy gap (about 0.66), so this follows from the weights, though it is wrong for someone who wants "pumped".
+- **Loud and unplugged vs. Genre vs. numbers:** Both have conflicting preferences, in different ways. Loud and unplugged has no labels and asks for a combination no song has, so it tops out at 1.74 with a list split between loud and acoustic songs. In Genre vs. numbers the metal label contradicts the quiet, acoustic numbers. Iron Cathedral wins at 3.43 on labels alone, and ranks 2 to 5 follow the numbers. With a label, one song gets lifted. Without one, the list is just a compromise.
+- **Categorical only vs. Tie-breaker:** Categorical only ties Library Rain and Midnight Coding at 3.00, and the #5 slot is a 0.00 song picked alphabetically. Adding one energy target (0.4) in Tie-breaker puts Focus Flow first and fills ranks 4 and 5 with the songs closest in energy (Coffee Shop Stories, Crossroads Monday) instead of arbitrary zeros.
+- **Messy categories vs. Empty profile:** The output is identical, all 0.00 and alphabetical. "Hip-Hop" and " chill " only count if they're formatted exactly like the catalog, so the typos silently turned a real user into an empty one.
+- **Wrong scale vs. Wrong type:** Both have a broken energy target. Wrong scale (energy 9) silently gives energy 0 points and lets tempo pick the winner, so the results look valid but aren't. Wrong type ("0.9") crashes with a TypeError. The crash is arguably the better failure because it can't be mistaken for a real recommendation.
+
+What surprised me most was how little the energy gap mattered. A 0.7 gap costs only about 1 point, and a genre match more than repays it. The system works well for ordinary, genre-consistent taste and breaks down when a listener's genre label and numeric targets disagree.
 
 ---
 

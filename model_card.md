@@ -125,6 +125,18 @@ Prompts:
 - Improving diversity among the top results  
 - Handling more complex user tastes  
 
+**Additional features.** I would add more song data, like artist, language, and release year. I would also let users list several favorite genres and moods instead of one. A user could also name genres or moods they want to avoid.
+
+**Better scoring.** I would lower the genre weight so it cannot beat the numbers so easily. I would also give partial credit for related genres, so "pop" earns something for "indie pop". Mood could work the same way, so "sad" would be close to "melancholic".
+
+**Better input handling.** The system should clean up typos and extra spaces, like " chill " or "Hip-Hop". It should also reject values on the wrong scale, like an energy of 9. Bad input should give a clear error, not a quiet wrong answer.
+
+**More diversity.** Right now the top 5 can all sound alike. I would add a rule that limits how many songs share one genre or artist.
+
+**Better explanations.** I would show why a song missed out, not just why it ranked. I would also say when a profile is too vague to give a good answer.
+
+**More complex taste.** Real listeners change with the time of day and their mood. I would let users pick a context, like "study" or "workout". I would also learn from skips and replays.
+
 ---
 
 ## 9. Personal Reflection  
@@ -136,3 +148,13 @@ Prompts:
 - What you learned about recommender systems  
 - Something unexpected or interesting you discovered  
 - How this changed the way you think about music recommendation apps  
+
+My biggest learning moment was testing the odd profiles. The "Wrong scale" profile gave results that looked fine but were not. The "Wrong type" profile crashed, and that was the better failure. A system that fails quietly is hard to trust. I also learned that a recommender is mostly a set of choices about weights. I gave genre 2.0 points, and that one choice shaped almost every result.
+
+AI helped me move fast. It helped me draft the scoring code, think up edge-case profiles, and write up my notes. But it was not always right. I had to check the song counts, the genre counts, and the scores against the real data and the real output. I also had to check that the weights in the write-up matched the weights in the code. The AI sounded sure even when a number was off. So I treated its answers as drafts, not facts.
+
+I was surprised how real the output felt. The model only adds up points. Yet the study profile gave a list that matched the mood I had in mind. The "Average listener" profile even picked a song that sat in the middle on every feature. Listing the reasons for each score made it feel smarter than it is. It also showed me where the logic broke. One thing that did not feel real was how little the energy gap mattered. A big gap cost about 1 point, and a genre match paid it back.
+
+For improvements, first, I would lower the genre weight and give partial credit for related genres and moods. Then I would clean up and check user input. After that, I would add a rule so the top 5 are not all alike. I would also like to add more songs and more genres. Last, I would let users pick a context like "study" or "workout". Then I would try learning from skips and replays.
+
+Music apps now look different to me. Their suggestions are not neutral. Someone chose what to count and how much. A small catalog or a heavy genre weight can keep a listener in one narrow lane. I want to learn more about what real apps measure.
